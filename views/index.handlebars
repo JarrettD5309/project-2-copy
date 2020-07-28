@@ -1,0 +1,173 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Same Page</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#" data-toggle="modal" data-target="#login" data-whatever="@mdo">Log In <span
+            class="sr-only">(current)</span></a>
+      </li>
+
+      <li>
+        <button class="btn btn-warning" type="button" id="sign-up" class="btn btn-primary" data-toggle="modal"
+          data-target="#signup" data-whatever="@mdo">Sign Up</button>
+      </li>
+    </ul>
+    <ul class="nav navbar-right">
+      <!-- <div class="col-xs-4"> -->
+
+      <form id="searchbar" style="width: 500px; margin: auto;">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search by Author or Title" aria-label="Search">
+
+      </form>
+
+
+
+      <button class="btn btn-warning" class="btn btn-outline-success" type="submit">Search</button>
+      <!-- </div> -->
+    </ul>
+  </div>
+
+</nav>
+
+{{!-- login modal --}}
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Please sign in </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          {{!-- this is where login success status displays --}}
+          <div id="modal-msg"><p>Please enter your details</p></div>
+
+          <form>
+            <div class="form-group">
+              <label for="username" class="col-form-label">Username:</label>
+              <input type="text"  id="username">
+            </div>
+            <div class="form-group">
+              <label for="password" class="col-form-label">Password:</label>
+              <input type="password" id="password">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn  btn-warning" id="login-button">Confirm</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{{!-- sign up modal --}}
+<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="signupModalLabel">Please sign up</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {{!-- this is where signup success status displays --}}
+        <div id="modal2-msg"><p>Please enter your details</p></div>
+        <form>
+          <div class="form-group">
+            <label for="postUsername" class="col-form-label">Username:</label>
+            <input type="text" id="postUsername">
+          </div>
+          <div class="form-group">
+            <label for="postPassword" class="col-form-label">Password:</label>
+            <input type="password" id="postPassword">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-warning" id="create-button">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <!-- <div id="toppage"> -->
+  <div class="w-100"></div>
+  <div class="row">
+    <!-- <div class="row align-items-start"> -->
+    <div class="col-md-12">
+      <h4>Top Rated Books of the Week</h4>
+
+    </div>
+  </div>
+  <!-- </div> -->
+  <div class="w-100"></div>
+  <div class="row">
+    <!-- <div class="row align-items-start"> -->
+    <div class="col-md-3">
+      <!-- image -->
+      {{!-- <img src="asset/BraveNewWorld.jpg" alt="music" class="img img-thumbnail" width="200px" height="200px"> --}}
+      <p id="bookone-title">Brave New World </p>
+      <p id="bookone-author">By Aldus Huxley</p>
+      <p id="bookone-votes">100</p>
+
+      <!-- <span id="bookone">Brave New World </span> -->
+    </div>
+    <div class="col-md-3">
+      {{!-- <img src="asset/TheCatcher.jpg" alt="..." class="img-thumbnail" width="200px" height="200px"> --}}
+      <p id="booktwo-title">The Catcher in the Rye </p>
+      <p id="booktwo-author">By J.D. Salinger </p>
+      <p id="booktwo-votes">50 </p>
+      <!-- <span id="booktwo">The Catcher in the Rye </span> -->
+    </div>
+    <div class="col-md-3">
+      {{!-- <img src="asset/Harrypotter.jp.jpg" alt="..." class="img-thumbnail" width="200px" height="100px"> --}}
+      <p id="bookthree-title">Harry Potter and the Prisoner of Azkaban</p>
+      <p id="bookthree-author">J.K. Rowling</p>
+      <p id="bookthree-votes">30</p>
+
+      <!-- <span id="bookthree">Harry Potter and the Prisoner of Azkaban </span> -->
+    </div>
+    <div class="col-md-3">
+      {{!-- <img src="asset/Sula.jpg" alt="..." class="img-thumbnail" width="200px" height="200px"> --}}
+      <p id="bookfour-title">Sula </p>
+      <p id="bookfour-author">Toni Morrison</p>
+      <p id="bookfour-votes">20</p>
+      <!-- <span id="bookfour">Sula </span> -->
+    </div>
+
+
+  </div>
+
+  <div class="w-100"></div>
+
+
+
+  <div class="row">
+    <!-- <div class="row align-items-start"> -->
+    <div class="col-md-12">
+      <button class="btn btn-warning" class="btn btn-outline-success" type="submit">Top This
+        Year</button>
+
+
+      <button class="btn btn-warning" class="btn btn-outline-success" type="submit">Top This
+        Year</button>
+    </div>
+  </div>
+
+  {{!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> --}}
+  <script src="/js/index.js"></script>
