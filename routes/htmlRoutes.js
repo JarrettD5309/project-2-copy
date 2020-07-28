@@ -88,8 +88,8 @@ module.exports = function(app) {
               var hbsObject = {
                 books: bookVoteArr
               }
-              res.render("loggedin", hbsObject);
-
+              // res.render("loggedin", hbsObject);
+              res.send(bookVoteArr);
 
             });
 
