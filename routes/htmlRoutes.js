@@ -106,14 +106,14 @@ module.exports = function(app) {
 
 
 
-    if (req.session.loggedin) {
-      var hbsObject = {
-        id: req.session.userID
-      };
-      res.render("loggedin", hbsObject);
-    } else {
-      res.redirect("/");
-    }
+    // if (req.session.loggedin) {
+    //   var hbsObject = {
+    //     id: req.session.userID
+    //   };
+    //   res.render("loggedin", hbsObject);
+    // } else {
+    //   res.redirect("/");
+    // }
   });
   app.get("/search", function(req,res) {
     res.render("search");
