@@ -5,3 +5,33 @@
 #page-title {
     font-family: 'Pacifico', cursive;
 }
+
+
+
+.card-border {
+  border: 1px lightgray solid;
+  border-radius: 5px;
+  max-width: 260px;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  img {
+    height: 180px;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}
