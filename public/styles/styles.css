@@ -14,6 +14,14 @@
   max-width: 260px;
 }
 
+.searchbar {
+  width: 180px;
+}
+
+.loggedin-vote {
+  display: inline;
+}
+
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
 
@@ -23,6 +31,10 @@
 @media (min-width: 768px) {
   img {
     height: 180px;
+  }
+
+  .card-border {
+    min-height: 320px;
   }
 }
 
