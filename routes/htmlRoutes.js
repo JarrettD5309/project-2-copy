@@ -8,7 +8,6 @@ module.exports = function(app) {
     db.Books.findAll({
       order: sequelize.literal("vote DESC")
     }).then(function (results) {
-      // console.log(results);
       var bookVoteArr = [];
 
       var counter = 0;
@@ -20,10 +19,7 @@ module.exports = function(app) {
           var searchURL = "https://www.googleapis.com/books/v1/volumes/" + bookVoteId + "?key=" + process.env.apiKey;
 
           axios.get(searchURL).then(function (result) {
-            // res.json(result.data);
-
-
-
+        
             var bookID = result.data.id;
             var bookTitle = result.data.volumeInfo.title;
             var authorArr = result.data.volumeInfo.authors;
@@ -38,7 +34,6 @@ module.exports = function(app) {
               vote: voteTotal
             };
 
-            console.log("this is book obj: " + JSON.stringify(bookObj));
             bookVoteArr.push(bookObj);
             counter += 1;
             cycleGoogleBook();
@@ -51,10 +46,7 @@ module.exports = function(app) {
           var searchURL = "https://www.googleapis.com/books/v1/volumes/" + bookVoteId + "?key=" + process.env.apiKey;
 
           axios.get(searchURL).then(function (result) {
-            // res.json(result.data);
-
-
-
+           
             var bookID = result.data.id;
             var bookTitle = result.data.volumeInfo.title;
             var authorArr = result.data.volumeInfo.authors;
@@ -69,10 +61,8 @@ module.exports = function(app) {
               vote: voteTotal
             };
 
-            console.log("this is book obj: " + JSON.stringify(bookObj));
             bookVoteArr.push(bookObj);
 
-            console.log("this is the book arr: " + bookVoteArr);
             var hbsObject = {
               books: bookVoteArr,
               username: req.session.username
@@ -91,18 +81,12 @@ module.exports = function(app) {
   });
 
   app.get("/loggedin", function(req,res) {
-    // if (req.session.loggedin) {
-    //   res.render("loggedin");
-    // } else {
-    //   res.send("ESTING LOGGEDIN = NOT logged in")
-    // }
     
     if (req.session.loggedin) {
       // Render home page
       db.Books.findAll({
         order: sequelize.literal("vote DESC")
       }).then(function (results) {
-        // console.log(results);
         var bookVoteArr = [];
 
         var counter = 0;
@@ -114,10 +98,7 @@ module.exports = function(app) {
             var searchURL = "https://www.googleapis.com/books/v1/volumes/" + bookVoteId + "?key=" + process.env.apiKey;
 
             axios.get(searchURL).then(function (result) {
-              // res.json(result.data);
-
-
-
+         
               var bookID = result.data.id;
               var bookTitle = result.data.volumeInfo.title;
               var authorArr = result.data.volumeInfo.authors;
@@ -132,7 +113,6 @@ module.exports = function(app) {
                 vote: voteTotal
               };
 
-              console.log("this is book obj: " + JSON.stringify(bookObj));
               bookVoteArr.push(bookObj);
               counter += 1;
               cycleGoogleBook();
@@ -163,17 +143,14 @@ module.exports = function(app) {
                 vote: voteTotal
               };
 
-              console.log("this is book obj: " + JSON.stringify(bookObj));
               bookVoteArr.push(bookObj);
 
-              console.log("this is the book arr: " + bookVoteArr);
               var hbsObject = {
                 books: bookVoteArr,
                 username: req.session.username
               }
               res.render("loggedin", hbsObject);
               
-
             });
 
           }
@@ -187,16 +164,6 @@ module.exports = function(app) {
       res.redirect("/");
     }
 
-
-
-    // if (req.session.loggedin) {
-    //   var hbsObject = {
-    //     id: req.session.userID
-    //   };
-    //   res.render("loggedin", hbsObject);
-    // } else {
-    //   res.redirect("/");
-    // }
   });
   app.get("/search", function(req,res) {
     res.render("search");
@@ -205,31 +172,6 @@ module.exports = function(app) {
   app.get("/logout", function(req,res) {
     req.session.destroy();
     res.redirect("/");
-  })
+  });
 
-
-
-  // // Load index page
-  // app.get("/", function(req, res) {
-  //   db.Example.findAll({}).then(function(dbExamples) {
-  //     res.render("index", {
-  //       msg: "Welcome!",
-  //       examples: dbExamples
-  //     });
-  //   });
-  // });
-
-  // // Load example page and pass in an example by id
-  // app.get("/example/:id", function(req, res) {
-  //   db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-  //     res.render("example", {
-  //       example: dbExample
-  //     });
-  //   });
-  // });
-
-  // // Render 404 page for any unmatched routes
-  // app.get("*", function(req, res) {
-  //   res.render("404");
-  // });
 };

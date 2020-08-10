@@ -68,7 +68,6 @@ module.exports = function (app) {
 
   // vote for book
   app.put("/api/vote", function(req,res) {
-    console.log("googleid: " + req.body.googleId);
 
     db.Books.update({
         vote: sequelize.literal("vote + 1")
@@ -77,7 +76,6 @@ module.exports = function (app) {
             bookId: req.body.googleId
         }
     }).then(function(result) {
-        console.log(result);
         res.json(result);
     });
 });
@@ -86,12 +84,7 @@ module.exports = function (app) {
   app.get("/api/search", function (req, res) {
     var searchURL = "https://www.googleapis.com/books/v1/volumes?q=" + req.query.q + "&projection=lite&key=" + process.env.apiKey;
 
-    console.log("URL: " + searchURL);
-
     axios.get(searchURL).then(function (result) {
-      // res.json(result.data);
-
-      console.log(result.data);
 
       var bookArr = [];
 
@@ -113,7 +106,6 @@ module.exports = function (app) {
 
       };
 
-      // console.log("new array: " + JSON.stringify(bookArr));
       if (req.session.loggedin) {
         var idAndBookObj = {
           bookArr: bookArr,
