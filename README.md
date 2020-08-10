@@ -4,7 +4,7 @@ Version 2.0 \
 Version Deployment Date - Aug 09, 2020\
 Updates By Jarrett Dougherty
 
-<img src="md_images/same-page.png" alt="Same Page Image" width="500"/>
+<kbd><img src="md_images/same-page.png" alt="Same Page Image" width="500"/></kbd>
 
 ## Guest User Login Info
 ```
