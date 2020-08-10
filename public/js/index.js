@@ -1,3 +1,4 @@
+// login user in
 $("#login-button").on("click", function () {
   var username = $("#username").val().trim();
   var password = $("#password").val().trim();
@@ -25,6 +26,7 @@ $("#login-button").on("click", function () {
   });
 });
 
+// create user
 $("#create-button").on("click", function () {
   var username = $("#postUsername").val().trim();
   var password = $("#postPassword").val().trim();
@@ -100,56 +102,19 @@ $("#book-submit").on("click", function () {
         newDiv2.append(newButton);
         newDiv.append(newDiv2);
 
-        // var newDiv = $("<div>").addClass("col-md-12");
-        // var newImg = $("<img>").attr("src", bookArr[i].image).addClass("img img-thumbnail").attr("width", "200px").attr("height", "200px");
-        // newDiv.append(newImg);
-        // var newTitle = $("<p>").text("Title: " + bookArr[i].title);
-        // newDiv.append(newTitle);
-        // var newAuthor = $("<p>").text("Author(s): " + bookArr[i].author);
-        // newDiv.append(newAuthor);
-
-        // var newButton = $("<button>").addClass("btn btn-primary add-book").attr("type", "button").attr("data-user_id", currentUser).attr("data-book_id", bookArr[i].id).attr("data-book_title", bookArr[i].title).text("Add Book");
-
-        // newDiv.append(newButton);
-
-        // var newHr = $("<hr>").addClass("solid");
-
-        // $(newDiv).append(newHr);
-
-
         $("#book-info").append(newDiv);
-
-
-        // $("body").on("click", "#add-book-info", function () {
-        //   var modalDiv = $("<div>").addClass("col-6");
-        //   modalDiv.append(newImg);
-        //   modalDiv.append(newTitle);
-        //   modalDiv.append(newAuthor);
-        //   // modalDiv.append(bookArr[i].id)
-        //   $("#book-info-modal").append(modalDiv);
-        // });
       }
 
 
 
     } else {
-
-      for (var i = 0; i < result.length; i++) {
-        var newDiv = $("<div>").addClass("col-md-6");
-        var newImg = $("<img>").attr("src", result[i].image);
-        newDiv.append(newImg);
-        var newTitle = $("<p>").text("Title: " + result[i].title);
-        newDiv.append(newTitle);
-        var newAuthor = $("<p>").text("Author(s): " + result[i].author);
-        newDiv.append(newAuthor);
-        var newHr = $("<hr>");
-        newDiv.append(newHr);
-        $("#book-info").append(newDiv);
-      }
+      var newHeader = $("<h3>").text("ERROR: Please try logging back in.")
+      $("#book-info").append(newHeader);
     }
   });
 });
 
+// book vote
 $(document).on("click", ".vote-button", function () {
   var googleId = $(this).data("googleid");
 
@@ -165,6 +130,7 @@ $(document).on("click", ".vote-button", function () {
 
   });
 });
+
 
 $(document).on("click", ".add-book", function () {
   var userId = $(this).data("user_id");
